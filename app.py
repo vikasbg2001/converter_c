@@ -5,11 +5,11 @@ from io import BytesIO
 
 def main():
     st.set_page_config(page_title="PragyanAI - VVIET Multimedia Hub", layout="wide")
- # Change this:
-st.image("PragyanAI_Transperent.png")
-
-# To this:
-st.image("photo2.jpg")
+    
+    # Using photo2.jpg as the logo since it exists in your repository
+    st.image("photo2.jpg")
+    
+    st.title("PragyanAI Multi-Functional Media Hub")
     
     # Create Tabs for Video, YouTube, and PDF
     tab1, tab2, tab3 = st.tabs(["📹 Local Video", "📺 YouTube Player", "📄 PDF to Audio"])
@@ -55,14 +55,14 @@ st.image("photo2.jpg")
             
             with col_text:
                 st.subheader(f"Text Preview (Page {page_num + 1})")
-                if text.strip():
+                if text and text.strip():
                     st.write(text)
                 else:
                     st.warning("No text detected on this page (it might be an image).")
 
             with col_audio:
                 st.subheader("Audio Controls")
-                if text.strip():
+                if text and text.strip():
                     if st.button("🔊 Generate Speech for this Page"):
                         with st.spinner("Converting text to speech..."):
                             tts = gTTS(text=text, lang='en')
